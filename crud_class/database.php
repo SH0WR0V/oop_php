@@ -70,8 +70,22 @@ class Database
         }
     }
 
-    public function delete()
+    public function delete($table, $where = null)
     {
+        if ($this->tableExists($table)) {
+            $sql = "DELETE FROM $table";
+            if ($where != null) {
+                $sql .= " WHERE $where";
+            }
+            if ($this->mysqli->query($sql)) {
+                array_push($this->result, $this->mysqli->affected_rows);
+            } else {
+                array_push($this->result, $this->mysqli->error);
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public function select()
