@@ -38,6 +38,7 @@ class Database
 
             if ($this->mysqli->query($sql)) {
                 array_push($this->result, $this->mysqli->insert_id);
+                return true;
             } else {
                 array_push($this->result, $this->mysqli->error);
                 return false;
@@ -171,7 +172,7 @@ class Database
                     $output .= "<li><a href='$url?page=" . ($page + 1) . "'>Next</a></li>";
                 }
                 $output .= "</ul>";
-                return $output;
+                echo $output;
             } else {
                 return false;
             }

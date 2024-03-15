@@ -18,4 +18,5 @@ $obj->select('students', '*', null, null, null, 2);
 echo "Select result is: ";
 print_r($obj->getResult());
 
+
 echo $obj->pagination('students', null, null, 2);
