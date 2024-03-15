@@ -10,6 +10,10 @@ $obj = new Database();
 // echo "Update result is: ";
 // print_r($obj->getResult());
 
-$obj->delete('students', 'id = "3"');
-echo "Delete result is: ";
+// $obj->delete('students', 'id = "3"');
+// echo "Delete result is: ";
+// print_r($obj->getResult());
+
+$obj->select('students');
+echo "Select result is: ";
 print_r($obj->getResult());
